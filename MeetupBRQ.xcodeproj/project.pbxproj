@@ -17,6 +17,7 @@
 		A3E1D68527B952F300D9E3EA /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1D67F27B952F300D9E3EA /* HomeRouter.swift */; };
 		A3E1D68727B952F300D9E3EA /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1D68127B952F300D9E3EA /* HomePresenter.swift */; };
 		A3E1D68827B952F300D9E3EA /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1D68227B952F300D9E3EA /* HomeProtocols.swift */; };
+		A3E1D68C27B95BF800D9E3EA /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1D68B27B95BF800D9E3EA /* CharactersModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A3E1D67F27B952F300D9E3EA /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		A3E1D68127B952F300D9E3EA /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		A3E1D68227B952F300D9E3EA /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		A3E1D68B27B95BF800D9E3EA /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +66,9 @@
 		A3E1D66727B9521300D9E3EA /* MeetupBRQ */ = {
 			isa = PBXGroup;
 			children = (
+				A3E1D68A27B95BE100D9E3EA /* Model */,
 				A3E1D67C27B952DA00D9E3EA /* Home */,
+				A3E1D68927B9539200D9E3EA /* Files */,
 				A3E1D66827B9521300D9E3EA /* AppDelegate.swift */,
 				A3E1D66A27B9521300D9E3EA /* SceneDelegate.swift */,
 				A3E1D66C27B9521300D9E3EA /* ViewController.swift */,
@@ -85,6 +89,21 @@
 				A3E1D68227B952F300D9E3EA /* HomeProtocols.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A3E1D68927B9539200D9E3EA /* Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		A3E1D68A27B95BE100D9E3EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3E1D68B27B95BF800D9E3EA /* CharactersModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E1D68C27B95BF800D9E3EA /* CharactersModel.swift in Sources */,
 				A3E1D68727B952F300D9E3EA /* HomePresenter.swift in Sources */,
 				A3E1D66D27B9521300D9E3EA /* ViewController.swift in Sources */,
 				A3E1D68527B952F300D9E3EA /* HomeRouter.swift in Sources */,
