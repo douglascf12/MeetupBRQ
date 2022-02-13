@@ -1,0 +1,22 @@
+{
+    [
+        {
+            "name": "Chaves",
+            "telephone": "(00) 91111-0000",
+            "address": "",
+            "image": "chave"
+        },
+        {
+            "name": "Quico",
+            "telephone": "(00) 91111-0000",
+            "address": "",
+            "image": "quico"
+        },
+        {
+            "name": "Seu Madruga",
+            "telephone": "(00) 91111-0000",
+            "address": "",
+            "image": "seu_madruga"
+        }
+    ]
+}
