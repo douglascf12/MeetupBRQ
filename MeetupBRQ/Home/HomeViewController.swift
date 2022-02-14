@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     var presenter: HomePresenterProtocol?
-    var messageLabel: UILabel!
+    private var characters = [Characters]()
     
     lazy var tableView: UITableView = {
         var tableView = UITableView()
@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
         
         tableView.separatorInset = .zero
         
+        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         if #available(iOS 15, *) {
@@ -31,16 +33,20 @@ class HomeViewController: UIViewController {
         
         return tableView
     }()
+    
+    lazy var messageLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Vila do Chaves"
         
-        messageLabel = UILabel()
-        messageLabel.text = "Ainda não há dado para ser exibido."
-        messageLabel.textAlignment = .center
-        messageLabel.numberOfLines = 0
+        presenter?.getCharacters()
         
         tableView.backgroundView = messageLabel
         
@@ -64,14 +70,22 @@ class HomeViewController: UIViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.characters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
+        cell.textLabel?.text = characters[indexPath.row].name
+        return cell
     }
 }
 
 extension HomeViewController: HomeViewProtocol {
-    // MARK: HomeViewProtocol functions
+    func showCharacters(characters: [Characters]) {
+        self.characters = characters
+    }
+    
+    func showError(message: String) {
+        self.messageLabel.text = message
+    }
 }

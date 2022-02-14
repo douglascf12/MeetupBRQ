@@ -27,10 +27,10 @@ class HomePresenter: HomePresenterProtocol {
 
 extension HomePresenter: HomeInteractorOutputProtocol {
     func fetchCharacters(characters: [Characters]) {
-        // TODO: - Criar func de sucesso no HomeViewProtocol
+        view?.showCharacters(characters: characters)
     }
     
     func onError(message: String) {
-        // TODO: - Criar func de erro no HomeViewProtocol
+        view?.showError(message: message)
     }
 }

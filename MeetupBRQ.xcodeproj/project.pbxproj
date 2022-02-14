@@ -19,6 +19,7 @@
 		A3E1D68827B952F300D9E3EA /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1D68227B952F300D9E3EA /* HomeProtocols.swift */; };
 		A3E1D68C27B95BF800D9E3EA /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1D68B27B95BF800D9E3EA /* CharactersModel.swift */; };
 		A3E1D68F27B95C9800D9E3EA /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = A3E1D68E27B95C9800D9E3EA /* characters.json */; };
+		A3E1D69227BA8B4300D9E3EA /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E1D69127BA8B4300D9E3EA /* HomeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A3E1D68227B952F300D9E3EA /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
 		A3E1D68B27B95BF800D9E3EA /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
 		A3E1D68E27B95C9800D9E3EA /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
+		A3E1D69127BA8B4300D9E3EA /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		A3E1D67C27B952DA00D9E3EA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A3E1D69027BA8A1700D9E3EA /* cell */,
 				A3E1D67D27B952F300D9E3EA /* HomeViewController.swift */,
 				A3E1D67E27B952F300D9E3EA /* HomeInteractor.swift */,
 				A3E1D67F27B952F300D9E3EA /* HomeRouter.swift */,
@@ -107,6 +110,14 @@
 				A3E1D68B27B95BF800D9E3EA /* CharactersModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A3E1D69027BA8A1700D9E3EA /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				A3E1D69127BA8B4300D9E3EA /* HomeTableViewCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 				A3E1D68527B952F300D9E3EA /* HomeRouter.swift in Sources */,
 				A3E1D66927B9521300D9E3EA /* AppDelegate.swift in Sources */,
 				A3E1D68827B952F300D9E3EA /* HomeProtocols.swift in Sources */,
+				A3E1D69227BA8B4300D9E3EA /* HomeTableViewCell.swift in Sources */,
 				A3E1D66B27B9521300D9E3EA /* SceneDelegate.swift in Sources */,
 				A3E1D68427B952F300D9E3EA /* HomeInteractor.swift in Sources */,
 				A3E1D68327B952F300D9E3EA /* HomeViewController.swift in Sources */,

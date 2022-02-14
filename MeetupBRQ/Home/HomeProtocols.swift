@@ -20,6 +20,7 @@ protocol HomePresenterProtocol: AnyObject {
 
     var interactor: HomeInteractorInputProtocol? { get set }
 
+    func getCharacters()
 }
 
 // MARK: InteractorProtocol
@@ -46,4 +47,6 @@ protocol HomeViewProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
 
     /** Presenter -> ViewController */
+    func showCharacters(characters: [Characters])
+    func showError(message: String)
 }
