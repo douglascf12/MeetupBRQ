@@ -14,7 +14,10 @@ class HomeInteractor: HomeInteractorInputProtocol {
     
     func getCharacters() {
         do {
-            guard let filePath = Bundle.main.url(forResource: "characters", withExtension: "json") else { return }
+            guard let filePath = Bundle.main.url(forResource: "characters", withExtension: "json") else {
+                presenter?.onError(message: "Não foi possível encontrar o arquivo.")
+                return
+            }
             let jsonData = try Data(contentsOf: filePath)
             let jsonDecoder = JSONDecoder()
             let characters = try jsonDecoder.decode([Characters].self, from: jsonData)

@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
     
     lazy var messageLabel: UILabel = {
         let label = UILabel()
+        label.isHidden = true
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -86,6 +87,7 @@ extension HomeViewController: HomeViewProtocol {
     }
     
     func showError(message: String) {
+        self.messageLabel.isHidden = false
         self.messageLabel.text = message
     }
 }
