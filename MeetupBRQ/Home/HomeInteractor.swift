@@ -12,7 +12,7 @@ class HomeInteractor: HomeInteractorInputProtocol {
     
     weak var presenter: HomeInteractorOutputProtocol?
     
-    func getCharacters() {
+    func fetchCharacters() {
         do {
             guard let filePath = Bundle.main.url(forResource: "characters", withExtension: "json") else {
                 presenter?.onError(message: "Não foi possível encontrar o arquivo.")
@@ -21,7 +21,7 @@ class HomeInteractor: HomeInteractorInputProtocol {
             let jsonData = try Data(contentsOf: filePath)
             let jsonDecoder = JSONDecoder()
             let characters = try jsonDecoder.decode([Characters].self, from: jsonData)
-            presenter?.fetchCharacters(characters: characters)
+            presenter?.loadCharacters(characters: characters)
         } catch(let errorMessage) {
             presenter?.onError(message: errorMessage.localizedDescription)
         }

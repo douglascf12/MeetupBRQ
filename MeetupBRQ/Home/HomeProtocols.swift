@@ -20,7 +20,7 @@ protocol HomePresenterProtocol: AnyObject {
 
     var interactor: HomeInteractorInputProtocol? { get set }
 
-    func getCharacters()
+    func fetchCharacters()
 }
 
 // MARK: InteractorProtocol
@@ -28,7 +28,7 @@ protocol HomePresenterProtocol: AnyObject {
 protocol HomeInteractorOutputProtocol: AnyObject {
 
     /** Interactor -> Presenter */
-    func fetchCharacters(characters: [Characters])
+    func loadCharacters(characters: [Characters])
     func onError(message: String)
 }
 
@@ -37,7 +37,7 @@ protocol HomeInteractorInputProtocol: AnyObject {
     var presenter: HomeInteractorOutputProtocol? { get set }
 
     /** Presenter -> Interactor */
-    func getCharacters()
+    func fetchCharacters()
 }
 
 // MARK: ViewProtocol

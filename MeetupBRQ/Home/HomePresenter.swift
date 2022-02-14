@@ -20,13 +20,13 @@ class HomePresenter: HomePresenterProtocol {
         self.router = router
     }
     
-    func getCharacters() {
-        interactor?.getCharacters()
+    func fetchCharacters() {
+        interactor?.fetchCharacters()
     }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
-    func fetchCharacters(characters: [Characters]) {
+    func loadCharacters(characters: [Characters]) {
         view?.showCharacters(characters: characters)
     }
     

@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
         
         title = "Vila do Chaves"
         
-        presenter?.getCharacters()
+        presenter?.fetchCharacters()
         
         tableView.backgroundView = messageLabel
         
