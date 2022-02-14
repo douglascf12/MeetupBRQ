@@ -34,6 +34,7 @@ protocol HomeInteractorInputProtocol: AnyObject {
     var presenter: HomeInteractorOutputProtocol? { get set }
 
     /** Presenter -> Interactor */
+    func getCharacters()
 }
 
 // MARK: ViewProtocol

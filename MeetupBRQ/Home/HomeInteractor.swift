@@ -9,7 +9,18 @@
 import Foundation
 
 class HomeInteractor: HomeInteractorInputProtocol {
-
+    
     weak var presenter: HomeInteractorOutputProtocol?
-
+    
+    func getCharacters() {
+        do {
+            guard let filePath = Bundle.main.url(forResource: "characters", withExtension: "json") else { return }
+            let jsonData = try Data(contentsOf: filePath)
+            let jsonDecoder = JSONDecoder()
+            let characters = try jsonDecoder.decode([Characters].self, from: jsonData)
+            // TODO: - Criar func de retorno com sucesso no HomeInteractorOutputProtocol
+        } catch(let errorMessage) {
+            // TODO: - Criar func de retorno com erro no HomeInteractorOutputProtocol
+        }
+    }
 }
