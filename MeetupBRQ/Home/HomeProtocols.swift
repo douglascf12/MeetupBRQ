@@ -21,6 +21,10 @@ protocol HomePresenterProtocol: AnyObject {
     var interactor: HomeInteractorInputProtocol? { get set }
 
     func fetchCharacters()
+    
+    func numberOfRows() -> Int
+    func getCharacterForCell(at indexPath: IndexPath) -> Characters
+    func setMessageError() -> String
 }
 
 // MARK: InteractorProtocol
@@ -47,6 +51,7 @@ protocol HomeViewProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
 
     /** Presenter -> ViewController */
-    func showCharacters(characters: [Characters])
-    func showError(message: String)
+    func showLoading()
+    func showCharacters()
+    func showError()
 }

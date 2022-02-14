@@ -34,6 +34,14 @@ class HomeViewController: UIViewController {
         return tableView
     }()
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.color = .blue
+        activityIndicator.isHidden = true
+        activityIndicator.style = .large
+        return activityIndicator
+    }()
+    
     lazy var messageLabel: UILabel = {
         let label = UILabel()
         label.isHidden = true
@@ -50,11 +58,13 @@ class HomeViewController: UIViewController {
         presenter?.fetchCharacters()
         
         tableView.backgroundView = messageLabel
+        tableView.backgroundView = activityIndicator
         
         setupLayout()
     }
     
     private func setupLayout() {
+        view.addSubview(activityIndicator)
         view.addSubview(tableView)
         
         setupConstraints()
@@ -65,29 +75,44 @@ class HomeViewController: UIViewController {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.characters.count
+        if let count = presenter?.numberOfRows() {
+            return count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
-        cell.textLabel?.text = characters[indexPath.row].name
+        cell.textLabel?.text = presenter?.getCharacterForCell(at: indexPath).name
         return cell
     }
 }
 
 extension HomeViewController: HomeViewProtocol {
-    func showCharacters(characters: [Characters]) {
-        self.characters = characters
+    func showLoading() {
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.isHidden = false
     }
     
-    func showError(message: String) {
+    func showCharacters() {
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
+        self.tableView.reloadData()
+    }
+    
+    func showError() {
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
         self.messageLabel.isHidden = false
-        self.messageLabel.text = message
+        self.messageLabel.text = presenter?.setMessageError()
     }
 }

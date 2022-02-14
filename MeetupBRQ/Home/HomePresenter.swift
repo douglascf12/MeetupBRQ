@@ -13,6 +13,9 @@ class HomePresenter: HomePresenterProtocol {
     weak private var view: HomeViewProtocol?
     var interactor: HomeInteractorInputProtocol?
     private let router: HomeWireframeProtocol
+    
+    private var characters = [Characters]()
+    private var messageError = String()
 
     init(interface: HomeViewProtocol, interactor: HomeInteractorInputProtocol?, router: HomeWireframeProtocol) {
         self.view = interface
@@ -21,16 +24,31 @@ class HomePresenter: HomePresenterProtocol {
     }
     
     func fetchCharacters() {
+        view?.showLoading()
         interactor?.fetchCharacters()
+    }
+    
+    func numberOfRows() -> Int {
+        return characters.count
+    }
+    
+    func getCharacterForCell(at indexPath: IndexPath) -> Characters {
+        return characters[indexPath.row]
+    }
+    
+    func setMessageError() -> String {
+        return messageError
     }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
     func loadCharacters(characters: [Characters]) {
-        view?.showCharacters(characters: characters)
+        self.characters = characters
+        view?.showCharacters()
     }
     
     func onError(message: String) {
-        view?.showError(message: message)
+        self.messageError = message
+        view?.showError()
     }
 }
