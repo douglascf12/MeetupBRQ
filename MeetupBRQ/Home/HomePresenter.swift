@@ -19,9 +19,18 @@ class HomePresenter: HomePresenterProtocol {
         self.interactor = interactor
         self.router = router
     }
-
+    
+    func getCharacters() {
+        interactor?.getCharacters()
+    }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
-    // MARK: HomeInteractorOutputProtocol functions
+    func fetchCharacters(characters: [Characters]) {
+        // TODO: - Criar func de sucesso no HomeViewProtocol
+    }
+    
+    func onError(message: String) {
+        // TODO: - Criar func de erro no HomeViewProtocol
+    }
 }

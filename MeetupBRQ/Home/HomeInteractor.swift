@@ -18,9 +18,9 @@ class HomeInteractor: HomeInteractorInputProtocol {
             let jsonData = try Data(contentsOf: filePath)
             let jsonDecoder = JSONDecoder()
             let characters = try jsonDecoder.decode([Characters].self, from: jsonData)
-            // TODO: - Criar func de retorno com sucesso no HomeInteractorOutputProtocol
+            presenter?.fetchCharacters(characters: characters)
         } catch(let errorMessage) {
-            // TODO: - Criar func de retorno com erro no HomeInteractorOutputProtocol
+            presenter?.onError(message: errorMessage.localizedDescription)
         }
     }
 }

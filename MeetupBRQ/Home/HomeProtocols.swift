@@ -27,6 +27,8 @@ protocol HomePresenterProtocol: AnyObject {
 protocol HomeInteractorOutputProtocol: AnyObject {
 
     /** Interactor -> Presenter */
+    func fetchCharacters(characters: [Characters])
+    func onError(message: String)
 }
 
 protocol HomeInteractorInputProtocol: AnyObject {
